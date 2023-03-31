@@ -18,5 +18,15 @@ namespace WebApplication1.Extensions
             } catch (Exception e) { }
             return model;
         }
+
+        public static IEnumerable<ProcessModel> ConvertToModelCollection(this IEnumerable<Process> models)
+        {
+            List<ProcessModel> results = new List<ProcessModel>();
+            foreach (var pro in models)
+            {
+                results.Add(pro.ConvertTo());
+            }
+            return results;
+        }
     }
 }
